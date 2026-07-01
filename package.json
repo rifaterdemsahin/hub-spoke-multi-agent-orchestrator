@@ -1,0 +1,30 @@
+{
+  "name": "hub-spoke-multi-agent-orchestrator",
+  "version": "1.0.0",
+  "description": "Architectural Demonstration Project for the Claude AI Architect Exam - Hub-and-Spoke Synthesis Orchestrator vs Naive Concatenation Anti-Pattern",
+  "type": "module",
+  "main": "demo.js",
+  "scripts": {
+    "start": "node demo.js",
+    "naive": "node demo.js --naive",
+    "resilient": "node demo.js --resilient",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "test": "node demo.js"
+  },
+  "keywords": [
+    "claude",
+    "ai-architect",
+    "multi-agent",
+    "hub-and-spoke",
+    "synthesis",
+    "orchestrator",
+    "resilience",
+    "zero-dependency"
+  ],
+  "author": "Rifat Erdem Sahin",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

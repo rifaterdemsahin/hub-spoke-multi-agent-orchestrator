@@ -1,0 +1,57 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" style="background: #0f172a; font-family: 'Inter', system-ui, sans-serif;">
+  <defs>
+    <linearGradient id="grad-box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00f2fe"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="35" fill="#f0f4f8" font-size="20" font-weight="800" text-anchor="middle">UML Static Class Hierarchy &amp; Duck-Typed Architecture</text>
+
+  <!-- Coordinator Box -->
+  <rect x="350" y="60" width="300" height="110" rx="12" fill="url(#grad-box)" stroke="#00f2fe" stroke-width="2" filter="url(#glow)"/>
+  <text x="500" y="90" fill="#fff" font-size="15" font-weight="bold" text-anchor="middle">&lt;&lt;Orchestrator&gt;&gt;</text>
+  <text x="500" y="115" fill="#00f2fe" font-size="18" font-weight="bold" text-anchor="middle">CoordinatorAgent</text>
+  <text x="500" y="145" fill="#94a3b8" font-size="13" text-anchor="middle">+ executeWorkflow(query): Result</text>
+
+  <!-- Duck Typed Contract -->
+  <rect x="350" y="210" width="300" height="70" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-dasharray="6,6" stroke-width="2"/>
+  <text x="500" y="238" fill="#cbd5e1" font-size="13" font-weight="bold" text-anchor="middle">&lt;&lt;Duck-Typed Interface&gt;&gt;</text>
+  <text x="500" y="262" fill="#4facfe" font-size="15" font-weight="bold" text-anchor="middle">SubagentContract : process(item) -&gt; Result</text>
+
+  <!-- Line from Coordinator to Contract -->
+  <line x1="500" y1="170" x2="500" y2="210" stroke="#00f2fe" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Subagent Boxes -->
+  <rect x="40" y="330" width="270" height="120" rx="10" fill="url(#grad-box)" stroke="#4facfe" stroke-width="2"/>
+  <text x="175" y="365" fill="#fff" font-size="15" font-weight="bold" text-anchor="middle">ResilientWebSearchSubagent</text>
+  <text x="175" y="390" fill="#94a3b8" font-size="13" text-anchor="middle">+ fallbackCache: Map</text>
+  <text x="175" y="415" fill="#10b981" font-size="13" text-anchor="middle">+ process(query): Result</text>
+
+  <rect x="365" y="330" width="270" height="120" rx="10" fill="url(#grad-box)" stroke="#4facfe" stroke-width="2"/>
+  <text x="500" y="365" fill="#fff" font-size="15" font-weight="bold" text-anchor="middle">ResilientDocAnalysisSubagent</text>
+  <text x="500" y="390" fill="#94a3b8" font-size="13" text-anchor="middle">+ fallbackCache: Map</text>
+  <text x="500" y="415" fill="#10b981" font-size="13" text-anchor="middle">+ process(query): Result</text>
+
+  <rect x="690" y="330" width="270" height="120" rx="10" fill="url(#grad-box)" stroke="#10b981" stroke-width="2" filter="url(#glow)"/>
+  <text x="825" y="360" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">&lt;&lt;The Answer&gt;&gt;</text>
+  <text x="825" y="385" fill="#10b981" font-size="16" font-weight="bold" text-anchor="middle">SynthesisSubagent</text>
+  <text x="825" y="410" fill="#94a3b8" font-size="13" text-anchor="middle">+ reconcileDuplicates()</text>
+  <text x="825" y="430" fill="#10b981" font-size="13" text-anchor="middle">+ process(findings): Result</text>
+
+  <!-- Lines from Contract to Subagents -->
+  <line x1="400" y1="280" x2="175" y2="330" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="500" y1="280" x2="500" y2="330" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="600" y1="280" x2="825" y2="330" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-green)"/>
+</svg>
